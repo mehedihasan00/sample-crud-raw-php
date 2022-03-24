@@ -1,0 +1,33 @@
+body {
+    background-color: #FFEFD5;
+}
+
+.student-info {
+    width: 60%;
+    margin: 0 auto;
+    padding: 1.5rem;
+    color: #fff;
+    background-color: #6B8E23;
+    box-shadow: 0 0 6px 1px grey;
+}
+.student-update {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.student-list {
+    margin-top: 0.5rem;
+    padding: 1.5rem;
+    color: #fff;
+    background-color: #2F4F4F;
+    box-shadow: 0 0 6px 1px grey;
+}
+.student-list .table th {
+    color: #FFEFD5;
+}
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    color: #fff;
+}
+.student-list .table tr {
+    color: #fff;
+}

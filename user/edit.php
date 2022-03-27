@@ -1,6 +1,6 @@
-<?php require_once("includes/db_connection.php"); ?>
-<?php require_once("includes/function.php"); ?>
-<?php include("includes/layouts/header.php") ?>
+<?php require_once("../includes/db_connection.php"); ?>
+<?php require_once("../includes/function.php"); ?>
+<?php include("../includes/layouts/header.php") ?>
     <form action="create_user.php" method="POST">
         <div class="row">
             <div class="col-md-6">
@@ -69,73 +69,14 @@
             </div>
             <div class="col-12 d-flex justify-content-end">
                 <!-- <input type="submit" value="submit" /> -->
-                <button type="submit" name="submit" class="btn btn-warning btn-sm">Submit</button>
+                <button type="submit" name="submit" value="create_user" class="btn btn-warning btn-sm">Submit</button>
             </div>
         </div>
     </form>
-    </div>
-        <?php 
-            // I've called the all select user data function 
-            $count = 1;
-            $user_set = find_all_user();
-            // $sql = "select * from user_infos";
-            // $result = mysqli_query($connection, $sql);
-                // while($row = mysqli_fetch_assoc($result)) {
-                //     print_r($row);
-                // }
-        ?>
-        <div class="student-list">
-            <table id="example" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>SL</th>
-                    <th>Name</th>
-                    <th>Father's Name</th>
-                    <th>Class</th>
-                    <th>Student Id</th>
-                    <th>District</th>
-                    <th>Phone Number</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            
-                <?php while($user = mysqli_fetch_assoc($user_set)) { ?>
-                    <!-- <?php print_r($user); ?> -->
-                <tr>
-                    <td><?php echo $count++; ?></td>
-                    <td><?php echo $user["name"] ?></td>
-                    <td><?php echo $user["father_name"]?></td>
-                    <td><?php echo $user["class"]?></td>
-                    <td><?php echo $user["student_id"]?></td>
-                    <td><?php echo $user["district"]?></td>
-                    <td><?php echo $user["phone_number"]?></td>
-                    <td>
-                        <a href="user/edit.php?id=<?php echo $user["id"];?>" class="btn btn-info btn-sm">Edit</a>
-                        <a href="user/delete.php?id=<?php echo $user["id"]?>" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
-                </tr>
-
-                <?php } ?>
-
-            </tbody>
-            <tfoot>
-                <!-- <tr>
-                    <th>SL</th>
-                    <th>Name</th>
-                    <th>Father's Name</th>
-                    <th>Class</th>
-                    <th>Student Id</th>
-                    <th>District</th>
-                    <th>Phone Number</th>
-                    <th>Action</th>
-                </tr> -->
-            </tfoot>
-            </table>
-        </div>
-    </div>
+    
     <div>
-        <h3 class="mt-3 text-center">php block</h3>
-        <?php print_r($_POST); ?>
+        <h3 class="mt-3 text-center">php block get and post</h3>
+        Get: <?php print_r($_GET); ?><br>
+        Post: <?php print_r($_POST); ?>
     </div>
-<?php include("includes/layouts/footer.php") ?>
+<?php include("../includes/layouts/footer.php") ?>

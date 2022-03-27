@@ -1,8 +1,7 @@
 <?php require_once("includes/db_connection.php"); ?>
 <?php require_once("includes/function.php"); ?>
-<?php 
-    print_r($_POST);
-    if(isset($_POST["submit"])) {
+<?php
+    if(isset($_POST["submit"]) && $_POST["submit"] = !null) {
         $name = $_POST["name"];
         $father_name = $_POST["father_name"];
         $mother_name = $_POST["mother_name"];
@@ -36,11 +35,16 @@
 
         if($result) {
             $_SESSION["message"] = "User Created";
-            redirect_to("index.php");
+            //redirect_to("index.php");
         } else {
             echo "Query is failed!";
         }
     } else {
         echo "User Data isn't submited!";
     }
+
+    var_dump($_POST);
+
+    echo "print_r option";
+    print_r($_POST);
 ?>

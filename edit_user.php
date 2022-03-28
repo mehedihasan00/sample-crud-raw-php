@@ -2,7 +2,7 @@
 <?php require_once("includes/function.php"); ?>
 
 <?php 
-    if(isset($_POST["submit"]) && $_POST["submit"] =! null) {
+    if(isset($_POST["submit"]) && $_POST["submit"] != null) {
         $id = $_GET["id"];
         $name = $_POST["name"];
         $father_name = $_POST["father_name"];
@@ -34,13 +34,17 @@
 
         if($result) {
             redirect_to("index.php");
-            // echo "User id: {$id} updated!";
+            echo "User id: {$id} updated!";
         } else {
             echo "Update query is failed!";
         }
+    } else {
+        echo "Update query failed!";
     }
 ?>
 <?php 
+    echo "<br/>";
+    print_r($_POST);
     echo "<br>"."get_id: ";
     echo $_GET["id"];
 ?>

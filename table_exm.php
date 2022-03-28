@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/table.css">
     <title>table example</title>
 </head>
@@ -64,9 +65,9 @@
                     <td data-field="sex">Female</td>
                     <td>
                         <a class="button button-small edit" title="Edit">
-                        Pencil
+                        <i class="fa fa-pencil"></i>
                         </a> <a class="button button-small" title="Delete">
-                        trash
+                        <i class="fa fa-trash"></i>
                         </a>
                     </td>
                     </tr>

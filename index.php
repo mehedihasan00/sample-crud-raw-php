@@ -1,6 +1,12 @@
 <?php require_once("includes/db_connection.php"); ?>
 <?php require_once("includes/function.php"); ?>
 <?php include("includes/layouts/header.php") ?>
+    <div class="container">
+        <div class="student-info mt-1">
+            <div>
+                <span class="badge bg-success">Raw PHP</span>
+                <h3 class="text-center">Student Registration</h3>
+            </div>
     <form action="create_user.php" method="POST">
         <div class="row">
             <div class="col-md-6">
@@ -25,10 +31,10 @@
                 <div class="mb-3">
                     <label for="class" class="form-label">Class</label>
                     <select name="class" class="form-select form-select-sm" aria-label="Default select class" id="class">
-                        <option selected>Class</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        <option value="1" selected>One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
                     </select>
                 </div>
             </div>
@@ -48,8 +54,8 @@
                 <div class="mb-3">
                     <label for="district" class="form-label">District</label>
                     <select name="district" class="form-select form-select-sm" aria-label="Default select district" id="district">
-                        <option selected>District</option>
-                        <option value="Dhaka">Dhaka</option>
+                        <option value="Dhaka" selected>Dhaka</option>
+                        <option value="Rajshahi">Rajshahi</option>
                         <option value="Bandarban">Bandarban</option>
                         <option value="Sylhet">Sylhet</option>
                     </select>
@@ -68,7 +74,6 @@
                 </div>
             </div>
             <div class="col-12 d-flex justify-content-end">
-                <!-- <input type="submit" value="submit" /> -->
                 <button type="submit" name="submit" class="btn btn-warning btn-sm">Submit</button>
             </div>
         </div>
@@ -91,10 +96,13 @@
                     <th>SL</th>
                     <th>Name</th>
                     <th>Father's Name</th>
+                    <th>Mother's Name</th>
                     <th>Class</th>
                     <th>Student Id</th>
+                    <th>Email</th>
                     <th>District</th>
                     <th>Phone Number</th>
+                    <th>Address</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -106,15 +114,27 @@
                     <td><?php echo $count++; ?></td>
                     <td><?php echo $user["name"] ?></td>
                     <td><?php echo $user["father_name"]?></td>
+                    <td><?php echo $user["mother_name"]?></td>
                     <td><?php echo $user["class"]?></td>
                     <td><?php echo $user["student_id"]?></td>
+                    <td><?php echo $user["email"]?></td>
                     <td><?php echo $user["district"]?></td>
                     <td><?php echo $user["phone_number"]?></td>
+                    <td><?php echo $user["address"]?></td>
                     <td>
-                        <a href="user/edit.php?id=<?php echo $user["id"];?>" class="btn btn-info btn-sm">Edit</a>
-                        <a href="user/delete.php?id=<?php echo $user["id"]?>" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="edit.php?id=<?php echo $user["id"];?>" class="btn btn-info btn-sm">Edit</a>
+                        <input type="button" class="btn btn-danger btn-sm" name="delete" value="Delete" onClick="confirmDelete('user_del.php?id=<?php echo $user["id"];?>')">
+                       <!-- <form action="#" method="post" onSubmit="return confirm('Are You Sure')">
+                            <input class="btn btn-danger btn-sm" type="text" value="<?php echo $user["id"];?>" name="txtId" hidden>
+                            <input class="btn btn-danger btn-sm" type="submit" value="Delete">
+                        </form> -->
+                        <!-- <a class="btn btn-danger btn-sm" id="del_btn">Delete</a> -->
                     </td>
                 </tr>
+                <!-- <tr class="data">
+                    
+                </tr> -->
+                <!-- <div style="height: 50px; background-color: #fff; border: 1px solid gray">2</div> -->
 
                 <?php } ?>
 
@@ -134,8 +154,18 @@
             </table>
         </div>
     </div>
-    <div>
+    <!-- <div>
         <h3 class="mt-3 text-center">php block</h3>
         <?php print_r($_POST); ?>
-    </div>
+    </div> -->
+
+    <script>
+        function confirmDelete(url, name) {
+            if (confirm("Are you sure you want to delete this?")) {
+                window.open(url);
+            } else {
+                false;
+            }       
+        }
+    </script>
 <?php include("includes/layouts/footer.php") ?>

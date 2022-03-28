@@ -11,9 +11,4 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="student-info mt-1">
-            <div>
-                <span class="badge bg-success">Raw PHP</span>
-                <h3 class="text-center">Student Registration</h3>
-            </div>
+   

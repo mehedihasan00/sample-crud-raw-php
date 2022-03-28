@@ -31,3 +31,12 @@ body {
 .student-list .table tr {
     color: #fff;
 }
+
+/* Model */
+.modal {
+    color: #000;
+}
+.data {
+    height: 100px;
+    background-color: #fff;
+}

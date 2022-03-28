@@ -1,7 +1,7 @@
 <?php require_once("includes/db_connection.php"); ?>
 <?php require_once("includes/function.php"); ?>
 <?php
-    if(isset($_POST["submit"]) && $_POST["submit"] = !null) {
+    if(isset($_POST["submit"]) && $_POST["submit"] =! null) {
         $name = $_POST["name"];
         $father_name = $_POST["father_name"];
         $mother_name = $_POST["mother_name"];
@@ -24,27 +24,45 @@
 
         // perform insert query
         // Perform insertation query
-        $query = "INSERT INTO ";
-        $query .= "user_infos ( ";
-        $query .= "name, father_name, mother_name, class, student_id, email, district, phone_number, address, created_at ";
-        $query .= ") values ( ";
-        $query .= "'{$name}', '{$father_name}', '{$mother_name}', {$class}, {$student_id}, '{$email}', '{$district}', '{$phone_number}', '{$address}', '{$date}'";
-        $query .= " )";
 
-        $result = mysqli_query($connection, $query);
+        // $query = "INSERT INTO ";
+        // $query .= "user_infos ( ";
+        // $query .= "name, father_name, mother_name, class, student_id, email, district, phone_number, address, created_at ";
+        // $query .= ") values ( ";
+        // $query .= "'{$name}', '{$father_name}', '{$mother_name}', {$class}, {$student_id}, '{$email}', '{$district}', '{$phone_number}', '{$address}', '{$date}'";
+        // $query .= " )";
 
+        // $result = mysqli_query($connection, $query);
+
+        // if($result) {
+        //     $_SESSION["message"] = "User Created";
+        //     //redirect_to("index.php");
+        // } else {
+        //     echo "Query is failed!";
+        // }
+        
+        $result = insert_user($name, $father_name, $mother_name, $class, $student_id, $email, $district, $phone_number, $address, $date);
         if($result) {
-            $_SESSION["message"] = "User Created";
-            //redirect_to("index.php");
+            // $_SESSION["message"] = "User Created";
+            redirect_to("index.php");
         } else {
             echo "Query is failed!";
         }
     } else {
-        echo "User Data isn't submited!";
+        echo "Query didn't happened cause isset function doesn't match the requirement or $-POST array is less than 3";
     }
 
-    var_dump($_POST);
+    // var_dump($_POST);
 
-    echo "print_r option";
-    print_r($_POST);
+    // echo "<br>print_r option<br>";
+    // print_r($_POST);
+    // echo "<br/>";
+    // echo sizeof($_POST);
+    // echo "<br>";
+?>
+<?php 
+    // Close the database connection
+    if(isset($connection)) {
+        mysqli_close($connection);
+    }
 ?>
